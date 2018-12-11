@@ -1,0 +1,33 @@
+{
+  "name": "exploration4",
+  "version": "1.0.0",
+  "description": "A quick intro into gulp.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alxgmpr/Exploration4.git"
+  },
+  "keywords": [
+    "gulp",
+    "exploration"
+  ],
+  "author": "Alex Gompper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alxgmpr/Exploration4/issues"
+  },
+  "homepage": "https://github.com/alxgmpr/Exploration4#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  },
+  "dependencies": {
+    "angular": "^1.7.5",
+    "del": "^3.0.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-inject": "^5.0.2",
+    "http-server": "^0.11.1"
+  }
+}
