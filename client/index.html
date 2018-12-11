@@ -1,21 +1,57 @@
-<!DOCTYPE html>
-<html>
+<html ng-app="mvc">
     <head>
-        <title>Exploration 4</title>
-        
-        <!-- Vendor Files -->
-        <!-- app:js -->
-        <!-- endinject -->
-        
-        <!-- App Files -->
-        <script src="/app/app.js"></script>
-        
+        <title>Angular MVC - Books</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="app.css">
+        <!-- <script src="bookData.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="controller.js"></script>
     </head>
-    <body>
-        <h1>Exploration 4</h1>
-        <div ng-app="app">
-            <div ng-controller="GreetingController as ctrl">
-                <h2>{{ctrl.greeting}}</h2>
+    <body>        
+        <div ng-controller="bookCtrl as ctrl">
+        
+        	<form ng-submit="addBook()">
+				<input type="text" id="a_isbn" required pattern="[0-9]+" placeholder="ISBN" ng-model="isbn">
+				<input type="text" id="a_name" required placeholder="Book Name" ng-model="name">
+				<input type="text" id="a_author" required pattern="[A-Za-z]+ [A-Za-z]+" placeholder="Author" ng-model="author">
+				<input type="text" id="a_publisher" required placeholder="Publisher" ng-model="publisher">
+				<input type="text" id="a_type" required placeholder="Type" ng-model="type">
+				<input type="text" id="a_year" required pattern="[0-9]{4}" placeholder="Year" ng-model="year">
+				<input type="text" id="a_edition" required pattern="[0-9]+" placeholder="Edition" ng-model="edition">
+				<input type="text" id="a_stock" required pattern="true|false" placeholder="In Stock" ng-model="stock">
+				<input type="submit" text="Add Book">
+            </form>
+                <h2>Total Books In-Stock: {{getTotalBooks()}}</h2>
+               
+                <div>
+                    <table class="table">
+                        <tr>
+                            <th>ISBN</th>
+                            <th>Name</th>
+                            <th>Author</th>
+                            <th>Publisher</th>
+                            <th>Year</th>
+                            <th>Type</th>
+                            <th>Edition</th>
+                            <th>Stock</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr ng-repeat="b in data">
+                            <td>{{b.isbn}}</td>
+                            <td>{{b.name}}</td>
+                            <td>{{b.author}}</td>
+                            <td>{{b.publisher}}</td>
+                            <td>{{b.year}}</td>
+                            <td>{{b.type}}</td>
+                            <td>{{b.edition}}</td>
+                            <td>{{b.stock}}</td>
+                            <td><button ng-click="removeBook(b)">X</button></td>
+                        </tr>
+                    </table>
+                </div>
+            
+            
             </div>
         </div>
     </body>
